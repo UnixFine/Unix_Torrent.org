@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Unix.torrent — Игры</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+    body {
+      background: #1f1d1d;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #919191;
+    }
+    h1 {
+      text-align: center;
+      color: #00ff15;
+      text-shadow: 0 0 6px rgb(110, 255, 118);
+    }
+    .search-box {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .search-box input {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      background: #222;
+      color: #0f0;
+      box-shadow: 0 0 6px #07ff45;
+    }
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .tile {
+      background: #dfdfdf;
+      border: 1px solid #000000da;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+    .tile img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+    .tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #07ff45;
+    }
+    .tile-title {
+      padding: 10px;
+      background: #dfdfdf;
+      font-size: 15px;
+    }
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+
+  <h1>Unix.torrent — Качай до Бесконечности</h1>
+
+  <!-- Поиск -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Поиск игр...">
+  </div>
+  
+  <div class="tiles" id="gamesList">
+    <!-- Half-Life -->
+    <a class="tile" href="halflife.html">
+      <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/e/e5/HLbox.jpg/330px-HLbox.jpg" alt="Half-Life">
+      <div class="tile-title">Half-Life (1998)</div>
+    </a>
+    <!-- Grand Theft Auto San Andreas -->
+    <a class="tile" href="gta_sa.html">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/GTASABOX.jpg" alt="GTA SA">
+      <div class="tile-title">Grand Theft Auto San Andreas (2004)</div>
+    </a>
+    <!-- Need For Speed Underground 2 -->
+    <a class="tile" href="nfsu2.html">
+      <img src="https://upload.wikimedia.org/wikipedia/ru/d/d0/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Need_for_Speed_Underground_2.jpg" alt="NFSU2">
+      <div class="tile-title">Need For Speed: Underground 2 (2004)</div>
+    </a>
+    <!-- S.T.A.L.K.E.R. Shadow of Chernobyl -->
+    <a class="tile" href="stalker_soc.html">
+      <img src="https://upload.wikimedia.org/wikipedia/ru/9/99/Stalkercover.jpg" alt="STALKER">
+      <div class="tile-title">S.T.A.L.K.E.R.: Shadow of Chernobyl (2007)</div>
+    </a>
+    <!-- Teenage Mutant Ninja Turtles 2003 -->
+    <a class="tile" href="tmnt2003.html">
+      <img src="https://byrutgame.org/uploads/posts/2022-07/teenage-mutant-ninja-turtles-2003-poster.png" alt="TMNT 2003">
+      <div class="tile-title">Teenage Mutant Ninja Turtles (2003)</div>
+    </a>
+    <!-- LEGO Marvel Super Heroes -->
+    <a class="tile" href="LMSH.html">
+      <img src="https://byrutgame.org/uploads/posts/2019-12/1577822305_lego-marvel-super-heroes.jpg" alt="LEGO Marvel Super Heroes">
+      <div class="tile-title">LEGO Marvel Super Heroes (2013)</div>
+    </a>
+    <!-- Sonic Generations -->
+    <a class="tile" href="SonicG.html">
+      <img src="https://www.pjsgames.com/cdn/shop/files/sonic-generations-steam-cd-key.jpg?v=1691519965" alt="Sonic Generations">
+      <div class="tile-title">Sonic Generations (2011)</div>
+    </a>
+    <!-- Mortal Kombat 9 -->
+    <a class="tile" href="MK9.html">
+      <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Mortal_Kombat_box_art.png" alt="Mortal Kombat 9">
+      <div class="tile-title">Mortal Kombat 9 (2011)</div>
+    </a>
+    <!-- Need For Speed Shift -->
+    <a class="tile" href="NFSShift.html">
+      <img src="https://byrutgame.org/uploads/posts/2022-10/need-for-speed-shift.jpg" alt="Need For Speed Shift">
+      <div class="tile-title">Need For Speed Shift (2009)</div>
+    </a>
+    <!-- Мадагаскар 2 -->
+    <a class="tile" href="Madagascar2.html">
+      <img src="https://itorrents-igruha.org/uploads/posts/2021-07/1626847930_imgonline-com-ua-resize-ye5lzfjnbocb.jpg" alt="Madagascar 2">
+      <div class="tile-title">Мадагаскар 2 (2008)</div>
+    </a>
+    <!-- Metro 2033 -->
+    <a class="tile" href="Metro2033.html">
+      <img src="https://byrutgame.org/uploads/posts/2019-12/1577725439_1577725445.jpg" alt="Metro 2033">
+      <div class="tile-title">Metro 2033 (2010)</div>
+    <!-- Тачки  -->
+    <a class="tile" href="Cars.html">
+      <img src="https://byrutgame.org/uploads/posts/2024-09/20ee5a27d3_disney-pixar-cars-98128124.png" alt="Cars">
+      <div class="tile-title">Тачки (2006)</div>
+    <!-- Call Of Duty World At War  -->
+    <a class="tile" href="COD-World-at-war.html">
+      <img src="https://byrutgame.org/uploads/posts/2020-01/1577848456_call-of-duty-world-at-war.jpg" alt="Call Of Duty World At War">
+      <div class="tile-title">Call Of Duty World At War (2008)</div>
+    <!-- Transformers The Game  -->
+    <a class="tile" href="TF2007.html">
+      <img src="https://faqusha.ru/saves/wp-content/uploads/2007/06/transformers-the-game-cover.jpg" alt="Transformers The Game">
+      <div class="tile-title">Transformers The Game (2007)</div>
+    <!-- Pro Evolution Soccer 2016 -->
+    <a class="tile" href="PES16.html">
+      <img src="https://byrutgame.org/uploads/posts/2022-08/pro-evolution-soccer-2016-poster.jpg" alt="Pro Evolution Soccer 2016">
+      <div class="tile-title">Pro Evolution Soccer (2016)</div>
+    <!-- Batman: Arkham Origins -->
+    <a class="tile" href="Batman-Arkham-Origins.html">
+      <img src="https://byrutgame.org/uploads/posts/2024-02/batman-arkham-origins-8087.jpg" alt="Batman: Arkham Origins">
+      <div class="tile-title">Batman: Arkham Origins (2013)</div>
+    <!-- Battlefield 2142 -->
+    <a class="tile" href="BF2142.html">
+      <img src="https://byrutgame.org/uploads/posts/2022-08/battlefield-2142-poster.jpg" alt="Battlefield 2142">
+      <div class="tile-title">Battleifled 2142 (2006)</div>
+    <!-- Tomb Raider III -->
+    <a class="tile" href="BF2142.html">
+      <img src="https://byrutgame.org/uploads/posts/2021-10/1633190818_tomb-raider-iii.jpg" alt="Tomb Raider III">
+      <div class="tile-title">Tomb Raider III  (1998)</div>
+    <!-- Grand Theft Auto IV -->
+    <a class="tile" href="GTA-IV.html">
+      <img src="https://upload.wikimedia.org/wikipedia/ru/d/dd/Grand_Theft_Auto_IV.jpg" alt="Grand Theft Auto IV">
+      <div class="tile-title">Grand Theft Auto IV  (2008)</div>
+    <!-- The Incredible Hulk -->
+    <a class="tile" href="Hulk2008.html">
+      <img src="https://byrutgame.org/uploads/posts/2022-08/halk-igra-poster.jpg" alt="The Incredible Hulk">
+      <div class="tile-title">The Incredible Hulk (2008)</div>
+    <!-- Geometry Dash -->
+    <a class="tile" href="GD.html">
+      <img src="https://byrutgame.org/uploads/posts/2023-12/geometry-dash.jpg" alt="Geometry Dash">
+      <div class="tile-title">Geometry Dash (2013)</div>
+    <!-- Need For Speed Most Wanted Black Edition -->
+    <a class="tile" href="NFSMW2005.html">
+      <img src="https://byrutgame.org/uploads/posts/2020-09/1600565682_need-for-speed-most-wanted-hq-poster.jpeg" alt="Need For Speed Most Wanted Black Edition">
+      <div class="tile-title">Need For Speed Most Wanted Black Edition (2005)</div>
+    <!-- Lost Planet 3 -->
+    <a class="tile" href="Lost-Planet-3.html">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZnRW1AHwmXiCj-nT9RZuuAYcRSbZedF7Jb14YZsv1GYF5Om55pqkkOXog4jTMVZ_Fg2o&usqp=CAU" alt="Lost Planet 3">
+      <div class="tile-title">Lost Planet 3 (2013)</div>
+    <!-- Left 4 Dead -->
+    <a class="tile" href="Left-4-Dead.html">
+      <img src="https://upload.wikimedia.org/wikipedia/ru/4/44/L4D_PFT-360%2BPC.jpg" alt="Left 4 Dead">
+      <div class="tile-title">Left 4 Dead (2008)</div>
+    <!-- Алёша Попович и Тугарин Змей -->
+    <a class="tile" href="Алёша.html">
+      <img src="https://byrutgame.org/uploads/posts/2020-12/1608641876_alesha-popovich-i-tugarin-zmej-igra-poster.jpg" alt="Алёша Попович и Тугарин Змей">
+      <div class="tile-title">Алёша Попович и Тугарин Змей (2005)</div>
+    <!-- Добрыня Никитич и Змей Горыныч -->
+    <a class="tile" href="Добрыня.html">
+      <img src="https://itorrents-igruha.org/uploads/posts/2022-02/1644182790_poster_igry_dobrynja_nikitich_i_zmej_gorynych.jpg" alt="Добрыня Никитич и Змей Горыныч">
+      <div class="tile-title">Добрыня Никитич и Змей Горыныч (2006)</div>
+    <!-- Assassin's Creed Director's Cut Edition -->
+    <a class="tile" href="Assassin's I.html">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/52/Assassin%27s_Creed.jpg" alt="Assassin's Creed Director's Cut Edition">
+      <div class="tile-title">Assassin's Creed Director's Cut Edition (2007)</div>
+    <!-- Blur -->
+    <a class="tile" href="Blur.html">
+      <img src="https://i.playground.ru/e/c0nFf1TtVX5-ViHZFin2Sw.jpeg?414x574" alt="Blur">
+      <div class="tile-title">Blur (2010)</div>
+    <!-- Илья Муромец и Соловей Разбойник -->
+    <a class="tile" href="Ilya.html">
+    <img src="https://byrutgame.org./uploads/posts/2020-12/1608641736_ilja-muromec-i-solovej-razbojnik-igra-poster.jpg" alt="Илья Муромец и Соловей Разбойник">
+    <div class="tile-title">Илья Муромец и Соловей Разбойник (2007)</div>
+    <!-- Sonic Adventure 2 -->
+<a class="tile" href="SonicA2.html">
+  <img src="https://byrutgame.org./uploads/posts/2022-10/sonic-adventure-2.jpg" alt="Sonic Adventure 2">
+  <div class="tile-title">Sonic Adventure 2 (2001)</div>
+<!-- Undertale -->
+<a class="tile" href="Undertale.html">
+  <img src="https://byrutgame.org./uploads/posts/2019-12/1577602019_undertale.jpg" alt="Undertale">
+  <div class="tile-title">Undertale (2015)</div>
+<!-- NBA 2K11 -->
+<a class="tile" href="NBA2K11.html">
+  <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2gih.png" alt="NBA 2K11">
+  <div class="tile-title">NBA 2K11 (2010)</div>
+<!-- Heroes of Might and Magic IV -->
+<a class="tile" href="Heroes4.html">
+  <img src="https://cdn.idealo.com/folder/Product/586/4/586487/s1_produktbild_max/heroes-of-might-and-magic-iv-pc.jpg" alt="Heroes of Might and Magic IV">
+  <div class="tile-title">Heroes of Might and Magic IV (2002)</div>
+<!-- Grand Theft Auto III -->
+<a class="tile" href="GTA3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/a/a7/GTA3cover.JPG" alt="Grand Theft Auto III">
+  <div class="tile-title">Grand Theft Auto III (2001)</div>
+<!-- FIFA 13 -->
+<a class="tile" href="FIFA13.html">
+  <img src="https://byrutgame.org./uploads/posts/2024-01/fifa-13.png" alt="FIFA 13">
+  <div class="tile-title">FIFA 13 (2012)</div>
+<!-- DiRT 3 -->
+<a class="tile" href="DiRT3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/2/2b/Dirt_3.jpg" alt="DiRT 3">
+  <div class="tile-title">DiRT 3 (2011)</div>
+  <a class="tile" href="Battlefield3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/6/69/Battlefield_3_Game_Cover.jpg" alt="Battlefield 3">
+  <div class="tile-title">Battlefield 3 (2011)</div>
+</a>
+<!-- Need for Speed: Undercover -->
+<a class="tile" href="NFSUndercover.html">
+  <img src="https://byrutgame.org/uploads/posts/2022-10/need-for-speed-undercover.jpg" alt="Need for Speed: Undercover">
+  <div class="tile-title">Need for Speed: Undercover (2008)</div>
+</a>
+<!-- Alone in the Dark (2008) -->
+<a class="tile" href="Alone2008.html">
+  <img src="https://byrutgame.org/uploads/posts/2023-03/alone-in-the-dark.jpg" alt="Alone in the Dark (2008)">
+  <div class="tile-title">Alone in the Dark (2008)</div>
+</a>
+<!-- S.T.A.L.K.E.R.: Call of Pripyat -->
+<a class="tile" href="StalkerCOP.html">
+  <img src="https://byrutgame.org./uploads/posts/2019-12/1577403859_stalker-call-of-pripyat.jpg" alt="S.T.A.L.K.E.R.: Call of Pripyat">
+  <div class="tile-title">S.T.A.L.K.E.R.: Call of Pripyat (2009)</div>
+</a>
+<!-- Ice Age 2 -->
+<a class="tile" href="IceAge2.html">
+  <img src="https://byrutgame.org./uploads/posts/2022-08/ice-age-2-the-meltdown-poster.jpg" alt="Ice Age 2: The Meltdown">
+  <div class="tile-title">Ice Age 2: The Meltdown (2006)</div>
+</a>
+<!-- Ice Age 3 -->
+<a class="tile" href="IceAge3.html">
+  <img src="https://byrutgame.org./uploads/posts/2022-08/ice-age-3-dawn-of-the-dinosaurs-poster.jpg" alt="Ice Age 3: Dawn of the Dinosaurs">
+  <div class="tile-title">Ice Age 3: Dawn of the Dinosaurs (2009)</div>
+</a>
+<!-- Crysis Warhead -->
+<a class="tile" href="CrysisWarhead.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-02/crysis-warhead-crysis-wars-6936.jpg" alt="Crysis Warhead">
+  <div class="tile-title">Crysis Warhead (2008)</div>
+</a>
+<!-- Postal III -->
+<a class="tile" href="Postal3.html">
+  <img src="https://byrutgame.org/uploads/posts/2023-10/postal-3-7190.jpg" alt="Postal III">
+  <div class="tile-title">Postal III (2011)</div>
+</a>
+<!-- Call of Duty: Ghosts -->
+<a class="tile" href="CODGhosts.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-02/call-of-duty-ghosts-4788.jpg" alt="Call of Duty: Ghosts">
+  <div class="tile-title">Call of Duty: Ghosts (2013)</div>
+</a>
+<!-- Counter-Strike: Source -->
+<a class="tile" href="CSS.html">
+  <img src="https://byrutgame.org/uploads/posts/2020-02/1580800698_counter-strike-source.jpg" alt="Counter-Strike: Source">
+  <div class="tile-title">Counter-Strike: Source (2004)</div>
+</a>
+<!-- Alan Wake -->
+<a class="tile" href="AlanWake.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-02/alan-wake-5607.jpg" alt="Alan Wake">
+  <div class="tile-title">Alan Wake (2010)</div>
+</a>
+<!-- Borderlands 2 -->
+<a class="tile" href="Borderlands2.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-02/borderlands-2-2479.jpg" alt="Borderlands 2">
+  <div class="tile-title">Borderlands 2 (2012)</div>
+</a>
+<!-- Age of History II -->
+<a class="tile" href="AoH2.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFPj9Aqu4MV0suy5znf7Pf_N89T0_9zU8qjQ&s" alt="Age of History II">
+  <div class="tile-title">Age of History II (2018)</div>
+</a>
+<!-- Дальнобойщики 2 -->
+<a class="tile" href="Dalnoboy2.html">
+  <img src="https://byrutgame.org/uploads/posts/2022-07/dalnobojschiki-2-poster.jpg" alt="Дальнобойщики 2">
+  <div class="tile-title">Дальнобойщики 2 (2000)</div>
+</a>
+<!-- Ну, погоди! Выпуск 3: Пенсия для зайца -->
+<a class="tile" href="NuPogodi3.html">
+  <img src="https://www.old-games.ru/games/pc/nu__pogodi!_vypusk_3__pesnya_dlya_zajca/covers/largecover/8444_5ec936ce8e0b2.jpg" alt="Ну, погоди! Выпуск 3: Пенсия для зайца">
+  <div class="tile-title">Ну, погоди! Выпуск 3: Пенсия для зайца (2002)</div>
+</a>
+<!-- Farming Simulator 2013 -->
+<a class="tile" href="Farming2013.html">
+  <img src="https://cdn.kanobu.ru/games/60/958c58a2148b4f89897f9fc0cd7d7830" alt="Farming Simulator 2013">
+  <div class="tile-title">Farming Simulator 2013 (2012)</div>
+</a>
+<!-- Mafia II -->
+<a class="tile" href="Mafia2.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuf154OJRHPnOra9cgH96EOHJEUdnQStMSGuJY3MpulDZyyTQ2Lbd7nep5yw4gzSuc_UQ&usqp=CAU" alt="Mafia II">
+  <div class="tile-title">Mafia II (2010)</div>
+</a>
+<!-- Sonic Mania Plus -->
+<a class="tile" href="SonicManiaPlus.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQZl2vQI--gvZLi7nmjOKGrftfqwZwxyxLdw&s" alt="Sonic Mania Plus">
+  <div class="tile-title">Sonic Mania Plus (2018)</div>
+</a>
+<!-- Portal 2 -->
+<a class="tile" href="Portal2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Portal2cover.jpg" alt="Portal 2">
+  <div class="tile-title">Portal 2 (2011)</div>
+</a>
+<!-- LEGO Star Wars II: The Original Trilogy -->
+<a class="tile" href="LegoSW2.html">
+  <img src="https://igronovinka.ru/image/cache/catalog/ps_product/66723c8a339c0-848x477.jpg" alt="LEGO Star Wars II: The Original Trilogy">
+  <div class="tile-title">LEGO Star Wars II: The Original Trilogy (2006)</div>
+ <!-- Pro Evolution Soccer 2015 -->
+<a class="tile" href="PES2015.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-01/pro-evolution-soccer-2015.png" alt="PES 2015">
+  <div class="tile-title">Pro Evolution Soccer 2015 (2014)</div>
+</a>
+<!-- Cars 2 -->
+<a class="tile" href="Cars2.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpnyJUMKPuKiunvr_WpxsXNcPjVmKAFC6-ZQ&s" alt="Cars 2">
+  <div class="tile-title">Cars 2 (2011)</div>
+</a>
+<!-- Call of Duty 2 -->
+<a class="tile" href="COD2.html">
+  <img src="https://byrutgame.org/uploads/posts/2019-12/1577121256_call-of-duty-2.jpg" alt="Call of Duty 2">
+  <div class="tile-title">Call of Duty 2 (2005)</div>
+</a>
+<!-- Battlefield 2 -->
+<a class="tile" href="Battlefield2.html">
+  <img src="https://images.stopgame.ru/games/logos/4131/battlefield_2-square_1.jpg" alt="Battlefield 2">
+  <div class="tile-title">Battlefield 2 (2005)</div>
+</a>
+<!-- Spider-Man: The Movie -->
+<a class="tile" href="SpidermanMovie.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/6/6a/Spider-Man._The_Movie_Game.jpg" alt="Spider-Man The Movie">
+  <div class="tile-title">Spider-Man: The Movie (2002)</div>
+</a>
+<!-- Spider-Man 3 -->
+<a class="tile" href="Spiderman3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/0/0a/Spider-Man_3_coverart.jpg" alt="Spider-Man 3">
+  <div class="tile-title">Spider-Man 3 (2007)</div>
+</a>
+<!-- Joint Task Force -->
+<a class="tile" href="JointTaskForce.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/4/43/Joint_Task_Force_cover.jpg" alt="Joint Task Force">
+  <div class="tile-title">Joint Task Force (2006)</div>
+</a>
+<!-- Assassin's Creed II -->
+<a class="tile" href="AC2.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTf7u9eKg9x_06MjXD5kEYYXb_iZmaRKQFZ4Unt5P29aaN95AFAHTspK1v7Fk-eyHFVP4&usqp=CAU" alt="Assassin's Creed II">
+  <div class="tile-title">Assassin's Creed II (2009)</div>
+</a>
+<!-- Assassin's Creed III -->
+<a class="tile" href="AC3.html">
+  <img src="https://itorrents-igruha.org/uploads/posts/2022-09/1664195653_cover.jpg" alt="Assassin's Creed III">
+  <div class="tile-title">Assassin's Creed III (2012)</div>
+</a>
+<!-- Lost Planet: Extreme Condition -->
+<a class="tile" href="LostPlanet2007.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfGhBg7iPWd2TYguBwu-Acq7xXweiGJ5AJFqTDCRsTad-ubDVw4f-5JG5i0554-I6PnBs&usqp=CAU" alt="Lost Planet 2007">
+  <div class="tile-title">Lost Planet: Extreme Condition (2007)</div>
+</a>
+<!-- Дальнобойщики 3 -->
+<a class="tile" href="Dalnoboy3.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-02/dalnobojschiki-3-6777.jpg" alt="Дальнобойщики 3">
+  <div class="tile-title">Дальнобойщики 3 (2009)</div>
+</a>
+<!-- Crysis -->
+<a class="tile" href="Crysis.html">
+  <img src="https://artgamer.ucoz.net/_ld/2/18952381.jpg" alt="Crysis">
+  <div class="tile-title">Crysis (2007)</div>
+</a>
+<!-- Crysis 2 -->
+<a class="tile" href="Crysis2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/b/b6/Crysis_2.jpeg" alt="Crysis 2">
+  <div class="tile-title">Crysis 2 (2011)</div>
+</a>
+<!-- Crysis 3 -->
+<a class="tile" href="Crysis3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/7/7c/Crysis_3_coverart.jpeg" alt="Crysis 3">
+  <div class="tile-title">Crysis 3 (2013)</div>
+</a>
+<!-- LEGO Racers 2 -->
+<a class="tile" href="LegoRacers2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Lego_Racers_2.jpg" alt="LEGO Racers 2">
+  <div class="tile-title">LEGO Racers 2 (2001)</div>
+</a>
+<!-- Doom Eternal -->
+<a class="tile" href="DoomEternal.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/8/8c/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Doom_Eternal.jpg" alt="Doom Eternal">
+  <div class="tile-title">Doom Eternal (2020)</div>
+</a>
+<!-- Fallout 3 -->
+<a class="tile" href="Fallout3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/c/c1/Fallout_3.jpg" alt="Fallout 3">
+  <div class="tile-title">Fallout 3 (2008)</div>
+</a>
+<!-- Gothic Classic (Gothic 1) -->
+<a class="tile" href="Gothic1.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/5/5e/Gothiccover.png/640px-Gothiccover.png" alt="Gothic Classic 1">
+  <div class="tile-title">Gothic Classic 1 (2001)</div>
+</a>
+<!-- Medal of Honor: Airborne -->
+<a class="tile" href="MOHAirborne.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/1/1d/Medal_of_Honor_Airborne.jpg" alt="Medal of Honor: Airborne">
+  <div class="tile-title">Medal of Honor: Airborne (2007)</div>
+</a>
+<!-- My Summer Car -->
+<a class="tile" href="MySummerCar.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREqOmja_hNoAwSFURk9UjsVRNYHmqDGFV1JQ&s" alt="My Summer Car">
+  <div class="tile-title">My Summer Car (2016)</div>
+</a>
+<!-- Смешарики: Круглая компания -->
+<a class="tile" href="Smeshariki.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHrjHqkSwMbuc5FJ_1PSY-SOryR-wz98DFLw&s" alt="Смешарики: Круглая компания">
+  <div class="tile-title">Смешарики: Круглая компания (2004)</div>
+<!-- Need for Speed Heat -->
+<a class="tile" href="NFSHeat.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSztcL9bemQaExwSEsqdAYjEledxzFullAnUvu8E62sCzbWtj-PMUAiBUb9FujbWMkSANo&usqp=CAU" alt="Need for Speed Heat">
+  <div class="tile-title">Need for Speed Heat (2019)</div>
+</a>
+<!-- GRID 2 -->
+<a class="tile" href="GRID2.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEN0lsUZTVqM63Hw7sd9sTkjcZNCx0mTA1THTZOyy9jQIoXyOqvOYaXHd6ICeY4_8dTw&usqp=CAU" alt="GRID 2">
+  <div class="tile-title">GRID 2 (2013)</div>
+</a>
+<!-- Transformers: Fall of Cybertron -->
+<a class="tile" href="TransformersFOC.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/6/68/War_for_Cybertron_2.jpeg" alt="Transformers Fall of Cybertron">
+  <div class="tile-title">Transformers: Fall of Cybertron (2012)</div>
+</a>
+<!-- Heroes of Might and Magic II -->
+<a class="tile" href="Heroes2.html">
+  <img src="https://cs13.pikabu.ru/post_img/big/2023/12/27/6/1703670216179611295.jpg" alt="Heroes of Might and Magic II">
+  <div class="tile-title">Heroes of Might and Magic II (1996)</div>
+</a>
+<!-- Team Sonic Racing -->
+<a class="tile" href="TeamSonicRacing.html">
+  <img src="https://m.media-amazon.com/images/I/81P4MPTsWaL._UF1000,1000_QL80_.jpg" alt="Team Sonic Racing">
+  <div class="tile-title">Team Sonic Racing (2019)</div>
+</a>
+<!-- Tomb Raider IV: The Last Revelation -->
+<a class="tile" href="TombRaider4.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/a/aa/Tomb_Raider_-_The_Last_Revelation.png" alt="Tomb Raider IV">
+  <div class="tile-title">Tomb Raider IV: The Last Revelation (1999)</div>
+</a>
+<!-- Teenage Mutant Ninja Turtles (2007) -->
+<a class="tile" href="TMNT2007.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBAR60rK51DGiUYjT-8iRgeD_gUxeCKjZwMagtDsqGvwLRlQosJQC-BLuM-cHv963R8KY&usqp=CAU" alt="Teenage Mutant Ninja Turtles 2007">
+  <div class="tile-title">Teenage Mutant Ninja Turtles: The Videogame (2007)</div>
+</a>
+<!-- Корпорация Монстров: Жуткая работа -->
+<a class="tile" href="MonstersInc.html">
+  <img src="https://ir.ozone.ru/s3/multimedia-1-a/c1000/7004852182.jpg" alt="Корпорация Монстров: Жуткая работа">
+  <div class="tile-title">Корпорация Монстров: Жуткая работа (2001)</div>
+</a>
+<!-- Весёлая ферма 2 -->
+<a class="tile" href="FarmFrenzy2.html">
+  <img src="https://byrutgame.org/uploads/posts/2019-12/1576981249_farm-frenzy-2.jpg" alt="Весёлая ферма 2">
+  <div class="tile-title">Весёлая ферма 2 (2008)</div>
+</a>
+<!-- Nancy Drew: Treasure in the Royal Tower -->
+<a class="tile" href="NancyDrewTower.html">
+  <img src="https://images.stopgame.ru/games/logos/6731/c280x280/SYdY92ljEQSBwJXxRG0YQA/nancy_drew_treasure_in_the_royal_tower-square.jpg" alt="Nancy Drew Treasure in the Royal Tower">
+  <div class="tile-title">Nancy Drew: Сокровище королевской башни (2001)</div>
+</a>
+<!-- Три богатыря и шамаханская царица -->
+<a class="tile" href="TriBogatirya.html">
+  <img src="https://byrutgame.org/uploads/posts/2019-12/1577756139_1577756100.jpg" alt="Три богатыря и Шамаханская Царица">
+  <div class="tile-title">Три богатыря и Шамаханская Царица (2010)</div>
+</a>
+<!-- Plants vs. Zombies -->
+<a class="tile" href="PvZ2009.html">
+  <img src="https://i.playground.ru/e/UYDaYe6u6FXRJyA-mSrz1A.jpeg?600-600" alt="Plants vs Zombies">
+  <div class="tile-title">Plants vs Zombies (2009)</div>
+</a>
+<!-- Смешарики: Компьютер Ёжика -->
+<a class="tile" href="SmesharikiPC.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b6FJUgQTZhD1aWuaiyzUCoR6mTxn_ghS5CpXSueyWg-MuqbwJJWed9S2uA3OqfhMcGc&usqp=CAU" alt="Смешарики: Компьютер Ёжика">
+  <div class="tile-title">Смешарики: Компьютер Ёжика (2005)</div>
+</a>
+<!-- Смешарики: В поисках Биби -->
+<a class="tile" href="SmesharikiBibi.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh1GgVuds5jD6mvsebKwDjmHXrjBF4QYjwYBhIR5_3GCC8GSqGfHwkuzdPh3Bhz_bYXDQ&usqp=CAU" alt="Смешарики: В поисках Биби">
+  <div class="tile-title">Смешарики: В поисках Биби (2008)</div>
+</a>
+<!-- FIFA 14 -->
+<a class="tile" href="FIFA14.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShzyYFVdg575CVN8-XDU2f16-Sl5jTzdwo2w&s" alt="FIFA 14">
+  <div class="tile-title">FIFA 14 (2013)</div>
+</a>
+<!-- FIFA 12 -->
+<a class="tile" href="FIFA12.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsdjVBmfZqWiV8UJx1INOnlqMlFEQcFOfGWg&s" alt="FIFA 12">
+  <div class="tile-title">FIFA 12 (2011)</div>
+</a>
+<!-- FIFA 11 -->
+<a class="tile" href="FIFA11.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/b/b8/Fifa11_cover_rus.jpg" alt="FIFA 11">
+  <div class="tile-title">FIFA 11 (2010)</div>
+</a>
+<!-- Mortal Kombat 11 -->
+<a class="tile" href="MK11.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/4/4e/Mortal_Kombat_11.jpg" alt="Mortal Kombat 11">
+  <div class="tile-title">Mortal Kombat 11 (2019)</div>
+</a>
+<!-- Grand Theft Auto V -->
+<a class="tile" href="GTA5.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="Grand Theft Auto V">
+  <div class="tile-title">Grand Theft Auto V (2013)</div>
+</a>
+<!-- Far Cry 3 -->
+<a class="tile" href="FarCry3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/a/a0/Far_Cry_3_Box_Art_PC.jpeg" alt="Far Cry 3">
+  <div class="tile-title">Far Cry 3 (2012)</div>
+</a>
+<!-- Far Cry 2 -->
+<a class="tile" href="FarCry2.html">
+  <img src="https://i.playground.ru/e/EwpmvAfyF1ICu3Qp765aGQ.jpeg?600-600" alt="Far Cry 2">
+  <div class="tile-title">Far Cry 2 (2008)</div>
+</a>
+<!-- Counter-Strike 1.6 -->
+<a class="tile" href="CS16.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/a/a6/Counter-Strike_Box_1.jpg" alt="Counter-Strike 1.6">
+  <div class="tile-title">Counter-Strike 1.6 (2000)</div>
+</a>
+<!-- Disney Speedstorm -->
+<a class="tile" href="DisneySpeedstorm.html">
+  <img src="https://byrutgame.org/uploads/posts/2023-10/disney-speedstorm-8165.jpg" alt="Disney Speedstorm">
+  <div class="tile-title">Disney Speedstorm (2023)</div>
+<!-- The Witcher 3: Wild Hunt -->
+<a class="tile" href="Witcher3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg" alt="The Witcher 3 Wild Hunt">
+  <div class="tile-title">Ведьмак 3: Дикая Охота (2015)</div>
+</a>
+<!-- GTA Vice City -->
+<a class="tile" href="GTAViceCity.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Vice-city-cover.jpg" alt="GTA Vice City">
+  <div class="tile-title">Grand Theft Auto: Vice City (2003)</div>
+</a>
+<!-- Assassin's Creed Brotherhood -->
+<a class="tile" href="ACBrotherhood.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/2/2a/Assassins_Creed_brotherhood_cover.jpg/250px-Assassins_Creed_brotherhood_cover.jpg" alt="Assassin's Creed Brotherhood">
+  <div class="tile-title">Assassin's Creed: Brotherhood (2010)</div>
+</a>
+<!-- BeamNG.drive -->
+<a class="tile" href="BeamNGDrive.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZs-z4BizVp1eLd_wCNB7G-Xxz2789OQlhsw&s" alt="BeamNG Drive">
+  <div class="tile-title">BeamNG.drive (2015)</div>
+</a>
+<!-- DiRT 2 -->
+<a class="tile" href="DiRT2.html">
+  <img src="https://i.playground.ru/e/d1aV8RoRti8L4ZncTYcI5g.jpeg" alt="DiRT 2">
+  <div class="tile-title">DiRT 2 (2009)</div>
+</a>
+<!-- Call of Duty 4: Modern Warfare -->
+<a class="tile" href="COD4MW.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Call_of_Duty_4_Modern_Warfare.jpg" alt="Call of Duty 4 Modern Warfare">
+  <div class="tile-title">Call of Duty 4: Modern Warfare (2007)</div>
+</a>
+<!-- Call of Duty: Modern Warfare 2 -->
+<a class="tile" href="CODMW2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/f/f3/Call_of_Duty_Modern_Warfare_2_cover.png" alt="Call of Duty Modern Warfare 2">
+  <div class="tile-title">Call of Duty: Modern Warfare 2 (2009)</div>
+</a>
+<!-- Call of Duty: Modern Warfare 3 -->
+<a class="tile" href="CODMW3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/a/ad/Call_of_Duty_Modern_Warfare_3_box_art.jpg" alt="Call of Duty Modern Warfare 3">
+  <div class="tile-title">Call of Duty: Modern Warfare 3 (2011)</div>
+</a>
+<!-- Dark Souls II -->
+<a class="tile" href="DarkSouls2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/2/22/Dark_souls_2.jpg" alt="Dark Souls II">
+  <div class="tile-title">Dark Souls II (2014)</div>
+</a>
+<!-- Deltarune -->
+<a class="tile" href="Deltarune.html">
+  <img src="https://itorrents-igruha.org/uploads/posts/2025-06/1749051386_library_600x900_2x.jpg" alt="Deltarune">
+  <div class="tile-title">Deltarune (2018)</div>
+</a>
+<!-- Devil May Cry 4 -->
+<a class="tile" href="DMC4.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/3/3c/Devil_May_Cry_4_Box_Cover.jpg" alt="Devil May Cry 4">
+  <div class="tile-title">Devil May Cry 4 (2008)</div>
+</a>
+<!-- Devil May Cry 3 -->
+<a class="tile" href="DMC3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/e/e2/Dmc3box.jpg" alt="Devil May Cry 3">
+  <div class="tile-title">Devil May Cry 3 (2006)</div>
+</a>
+<!-- FIFA 19 -->
+<a class="tile" href="FIFA19.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/0/0c/FIFA19.jpg" alt="FIFA 19">
+  <div class="tile-title">FIFA 19 (2018)</div>
+</a>
+<!-- PES 2013 -->
+<a class="tile" href="PES2013.html">
+  <img src="https://m.media-amazon.com/images/M/MV5BYzlmZmUyMzEtYjY1Yy00MjJiLTkzMjctM2JhNzVmYTlhNjJhXkEyXkFqcGc@._V1_QL75_UY281_CR5,0,190,281_.jpg" alt="PES 2013">
+  <div class="tile-title">Pro Evolution Soccer 2013 (2012)</div>
+</a>
+<!-- Far Cry Primal -->
+<a class="tile" href="FarCryPrimal.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/3/33/Far_cry_primal_cover.jpg" alt="Far Cry Primal">
+  <div class="tile-title">Far Cry Primal (2016)</div>
+</a>
+<!-- LEGO Batman: The Videogame -->
+<a class="tile" href="LEGOBatman.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvvKZkY9uzqcOfPpetBJsHYIaR3qJXw7D5Q&s" alt="LEGO Batman The Videogame">
+  <div class="tile-title">LEGO Batman: The Videogame (2008)</div>
+</a>
+<!-- PES 2014 -->
+<a class="tile" href="PES2014.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/a/a7/Pro_Evolution_Soccer_2014.png" alt="PES 2014">
+  <div class="tile-title">Pro Evolution Soccer 2014 (2013)</div>
+</a>
+<!-- Miside -->
+<a class="tile" href="Miside.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRif5GDikCyUGOBGcf9RWy5d_mpBKAj4XpiL97ySGwZTVChA9kOwAZ0c4vL2_TDYu7gQYc&usqp=CAU" alt="Miside">
+  <div class="tile-title">Miside (2023)</div>
+<!-- Need for Speed Underground -->
+<a class="tile" href="NFSUnderground.html">
+  <img src="https://cubiq.ru/wp-content/uploads/2019/08/Nfsu-win-cover.jpg" alt="Need For Speed Underground">
+  <div class="tile-title">Need For Speed: Underground (2003)</div>
+</a>
+<!-- S.T.A.L.K.E.R 2: Heart of Chernobyl -->
+<a class="tile" href="STALKER2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/5/5c/S.T.A.L.K.E.R._2_Logo.png" alt="S.T.A.L.K.E.R Heart of Chernobyl">
+  <div class="tile-title">S.T.A.L.K.E.R 2: Heart of Chernobyl (2024)</div>
+</a>
+<!-- Cyberpunk 2077 -->
+<a class="tile" href="Cyberpunk2077.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" alt="Cyberpunk 2077">
+  <div class="tile-title">Cyberpunk 2077 (2020)</div>
+</a>
+<!-- Battlefield 1942 -->
+<a class="tile" href="Battlefield1942.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/3/3e/Battlefield_1942.jpg" alt="Battlefield 1942">
+  <div class="tile-title">Battlefield 1942 (2002)</div>
+</a>
+<!-- Sonic Forces -->
+<a class="tile" href="SonicForces.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d7/SonicForcesArtwork.jpg/250px-SonicForcesArtwork.jpg" alt="Sonic Forces">
+  <div class="tile-title">Sonic Forces (2017)</div>
+</a>
+<!-- PES 2019 -->
+<a class="tile" href="PES2019.html">
+  <img src="https://assets1.ignimgs.com/2018/05/09/pes-2019---button-1525885009367.jpg" alt="PES 2019">
+  <div class="tile-title">Pro Evolution Soccer 2019 (2018)</div>
+</a>
+<!-- Mortal Kombat X -->
+<a class="tile" href="MortalKombatX.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/3/34/Mortal_Kombat_X.jpg" alt="Mortal Kombat X">
+  <div class="tile-title">Mortal Kombat X (2015)</div>
+</a>
+<!-- Teenage Mutant Ninja Turtles: Portal Power -->
+<a class="tile" href="TMNT_PortalPower.html">
+  <img src="https://cdn.kanobu.ru/c/2b6194338c981132a4d5d9e64d7a6d0f/400x510/cdn.kanobu.ru/games/58da559b-d0ed-42bb-90d2-1be3d6d9a3d0.JPG" alt="Teenage Mutant Ninja Turtles Portal Power">
+  <div class="tile-title">Teenage Mutant Ninja Turtles: Portal Power (2016)</div>
+</a>
+<!-- Tomb Raider Underworld -->
+<a class="tile" href="TombRaiderUnderworld.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/8/89/Tomb_Raider_Underworld.jpg" alt="Tomb Raider Underworld">
+  <div class="tile-title">Tomb Raider: Underworld (2008)</div>
+</a>
+<!-- X-Plane 11 -->
+<a class="tile" href="XPlane11.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA3tazTSD31Qkwm7dhGl_KtoxL-1rJaFRRYA&s" alt="X-Plane 11">
+  <div class="tile-title">X-Plane 11 (2017)</div>
+</a>
+<!-- Cars Toon: Mater's Tall Tales -->
+<a class="tile" href="CarsToonMatersTallTales.html">
+  <img src="https://m.media-amazon.com/images/M/MV5BNDMxYjQ3ZDAtMjg4OC00ZTQ0LTk1NGEtNjdlMmU1MWYxNGI3XkEyXkFqcGc@._V1_.jpg" alt="Cars Toon: Mater's Tall Tales">
+  <div class="tile-title">Cars Toon: Mater's Tall Tales (2010)</div>
+</a>
+<!-- Battlefield 1 -->
+<a class="tile" href="Battlefield1.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/9/98/Battlefield_1.jpg" alt="Battlefield 1">
+  <div class="tile-title">Battlefield 1 (2016)</div>
+</a>
+<!-- Tomb Raider II -->
+<a class="tile" href="TombRaiderII.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/c/cc/TombRaider2TheDaggerofXianCover.jpg/274px-TombRaider2TheDaggerofXianCover.jpg" alt="Tomb Raider II">
+  <div class="tile-title">Tomb Raider II (1997)</div>
+</a>
+<!-- Cuphead -->
+<a class="tile" href="Cuphead.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/e/eb/Cuphead_%28artwork%29.png/274px-Cuphead_%28artwork%29.png" alt="Cuphead">
+  <div class="tile-title">Cuphead (2017)</div>
+</a>
+<!-- Смешарики: По дороге со Смешариками -->
+<a class="tile" href="SmesharikiRoad.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRun8vPBaqob3XHWbAHA9IwbJ6MCjXGUM4lMj5Tw30VbFTMi44pIcGw5-ssMGoWd0lHWO0&usqp=CAU" alt="Смешарики По дороге со смешариками">
+  <div class="tile-title">Смешарики: По дороге со Смешариками (2006)</div>
+</a>
+<!-- Call of Duty: WWII -->
+<a class="tile" href="CODWWII.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUaRLcutxS_hByKF4DPRGW-WH0S1EJFmA-5A&s" alt="Call of Duty WWII">
+  <div class="tile-title">Call of Duty: WWII (2017)</div>
+</a>
+<!-- Madagascar -->
+<a class="tile" href="Madagascar2005.html">
+  <img src="https://i.playground.ru/e/GZ9skDeOD9dROsYN8O7bFQ.jpeg?600-600" alt="Madagascar 2005">
+  <div class="tile-title">Madagascar (2005)</div>
+</a>
+<!-- GTA 2 -->
+<a class="tile" href="GTA2.html">
+  <img src="https://www.old-games.ru/games/pc/grand_theft_auto_2/covers/largecover/11123_605cbe262bc55.jpg" alt="GTA 2">
+  <div class="tile-title">Grand Theft Auto 2 (1999)</div>
+</a>
+<!-- F1 2014 -->
+<a class="tile" href="F12014.html">
+  <img src="https://cdn.kanobu.ru/games/9b3aee61-6c38-4fc3-9ce6-849fac35948c.jpg" alt="F1 2014">
+  <div class="tile-title">F1 2014 (2014)</div>
+</a>
+<!-- F1 2012 -->
+<a class="tile" href="F12012.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/a/a1/F1_2012_cover.png" alt="F1 2012">
+  <div class="tile-title">F1 2012 (2012)</div>
+</a>
+<!-- Assassin's Creed Unity -->
+<a class="tile" href="ACUnity.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/5/5f/Assassin%E2%80%99s_Creed_-_Unity.jpg" alt="Assassin's Creed Unity">
+  <div class="tile-title">Assassin's Creed: Unity (2014)</div>
+<!-- Весёлая ферма 3 -->
+<a class="tile" href="FarmFrenzy3.html">
+  <img src="https://byrutgame.org/uploads/posts/2021-03/1614691325_farm_frenzy_3-poster.jpg" alt="Весёлая ферма 3">
+  <div class="tile-title">Весёлая ферма 3 (2009)</div>
+</a>
+<!-- Transformers: Devastation -->
+<a class="tile" href="TransformersDevastation.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/8/8c/Transformers_Devastation_cover_art.jpg" alt="Transformers Devastation">
+  <div class="tile-title">Transformers: Devastation (2015)</div>
+</a>
+<!-- God of War: Ragnarök -->
+<a class="tile" href="GodOfWarRagnarok.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/6/6e/God_of_War-_Ragnar%C3%B6k.jpg/330px-God_of_War-_Ragnar%C3%B6k.jpg" alt="God Of War Ragnarok">
+  <div class="tile-title">God of War: Ragnarök (2022)</div>
+</a>
+<!-- Half-Life 2 -->
+<a class="tile" href="HalfLife2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Half-Life_2_cover.jpg" alt="Half-Life 2">
+  <div class="tile-title">Half-Life 2 (2004)</div>
+</a>
+<!-- Red Dead Redemption -->
+<a class="tile" href="RDR1.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/a/a7/Red_Dead_Redemption.jpg" alt="Red Dead Redemption">
+  <div class="tile-title">Red Dead Redemption (2010)</div>
+</a>
+<!-- Red Dead Redemption 2 -->
+<a class="tile" href="RDR2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg" alt="Red Dead Redemption 2">
+  <div class="tile-title">Red Dead Redemption 2 (2018)</div>
+</a>
+<!-- GTA London 1969 -->
+<a class="tile" href="GTALondon1969.html">
+  <img src="https://byrutgame.org/uploads/posts/2020-02/1580793554_grand-theft-auto-london.jpg" alt="GTA London 1969">
+  <div class="tile-title">Grand Theft Auto: London 1969 (1999)</div>
+</a>
+<!-- Watch Dogs 2 -->
+<a class="tile" href="WatchDogs2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/8/86/Watch_Dogs_2_cover.jpg" alt="Watch Dogs 2">
+  <div class="tile-title">Watch Dogs 2 (2016)</div>
+</a>
+<!-- Max Payne 3 -->
+<a class="tile" href="MaxPayne3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/0/0f/Max_Payne_3.jpg" alt="Max Payne 3">
+  <div class="tile-title">Max Payne 3 (2012)</div>
+</a>
+<!-- LEGO Worlds -->
+<a class="tile" href="LEGOWorlds.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzltF3U7U2xnLyG5HJaOQmNZTVuN3dOWf8-A&s" alt="LEGO Worlds">
+  <div class="tile-title">LEGO Worlds (2017)</div>
+</a>
+<!-- Dead Space 2 -->
+<a class="tile" href="DeadSpace2.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/0/0c/Dead_Space_2_Box_Art.jpg" alt="Dead Space 2">
+  <div class="tile-title">Dead Space 2 (2011)</div>
+<!-- PC Building Simulator -->
+<a class="tile" href="PCBuildingSimulator.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlG3yO1IYpfZb7C9zPEMUKDT33gdiMyv7rQw&s" alt="PC Building Simulator">
+  <div class="tile-title">PC Building Simulator (2019)</div>
+</a>
+<!-- S.T.A.L.K.E.R.: Clear Sky -->
+<a class="tile" href="StalkerClearSky.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/4/41/S.T.A.L.K.E.R._Clear_Sky_WW_Cover.jpg/250px-S.T.A.L.K.E.R._Clear_Sky_WW_Cover.jpg" alt="S.T.A.L.K.E.R.: Clear Sky">
+  <div class="tile-title">S.T.A.L.K.E.R.: Clear Sky (2008)</div>
+</a>
+<!-- FIFA 15 -->
+<a class="tile" href="FIFA15.html">
+  <img src="https://upload.wikimedia.org/wikipedia/uk/thumb/3/35/%D0%9E%D0%B1%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8%D0%BD%D0%BA%D0%B0_%D0%B2%D1%96%D0%B4%D0%B5%D0%BE%D0%B3%D1%80%D0%B8_FIFA_15.jpg/250px-%D0%9E%D0%B1%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8%D0%BD%D0%BA%D0%B0_%D0%B2%D1%96%D0%B4%D0%B5%D0%BE%D0%B3%D1%80%D0%B8_FIFA_15.jpg" alt="FIFA 15">
+  <div class="tile-title">FIFA 15 (2014)</div>
+</a>
+<!-- Far Cry 4 -->
+<a class="tile" href="FarCry4.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/1/1a/Far_Cry_4_Box_Art_PC.jpg" alt="Far Cry 4">
+  <div class="tile-title">Far Cry 4 (2014)</div>
+</a>
+<!-- Far Cry -->
+<a class="tile" href="FarCry.html">
+  <img src="https://upload.wikimedia.org/wikipedia/ru/3/32/Far_Cry_coverart.jpg" alt="Far Cry">
+  <div class="tile-title">Far Cry (2004)</div>
+<!-- Assassin's Creed Rogue -->
+  <a class="tile" href="AssassinsCreedRogue.html">
+    <img src="https://byrutgame.org/uploads/posts/2024-02/assassins-creed-rogue-1350.jpg" alt="Assassin's Creed Rogue">
+    <div class="tile-title">Assassin's Creed Rogue (2014)</div>
+  </a>
+<!-- Far Cry New Dawn -->
+  <a class="tile" href="FarCryNewDawn.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1577800917_far-cry-new-dawn.jpg" alt="Far Cry New Dawn">
+    <div class="tile-title">Far Cry New Dawn (2019)</div>
+  </a>
+<!-- Battlefield 4 -->
+  <a class="tile" href="Battlefield4.html">
+    <img src="https://byrutgame.org/uploads/posts/2024-02/battlefield-4-7052.jpg" alt="Battlefield 4">
+    <div class="tile-title">Battlefield 4 (2013)</div>
+  </a>
+<!-- Dark Souls III -->
+  <a class="tile" href="DarkSouls3.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1577169484_dark-souls-iii.jpg" alt="Dark Souls III">
+    <div class="tile-title">Dark Souls III (2016)</div>
+  </a>
+<!-- The Elder Scrolls V: Skyrim -->
+  <a class="tile" href="Skyrim.html">
+    <img src="https://byrutgame.org/uploads/posts/2022-09/the-elder-scrolls-5-skyrim-anniversary-edition.png" alt="Skyrim">
+    <div class="tile-title">The Elder Scrolls V: Skyrim (2011)</div>
+  </a>
+<!-- Fallout 2 -->
+  <a class="tile" href="Fallout2.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1577245120_fallout-2-a-post-nuclear-role-playing-game.jpg" alt="Fallout 2">
+    <div class="tile-title">Fallout 2 (1998)</div>
+  </a>
+<!-- Far Cry 5 -->
+  <a class="tile" href="FarCry5.html">
+    <img src="https://byrutgame.org/uploads/posts/2025-02/35f3e82360_61607e4e01_f9d9679092_a4f05af0e2_a99f048319_5c2f2813a4_d3cb7c1610_far-cry-5-7936-4815-3817-9743-6853-6813-9679.jpg" alt="Far Cry 5">
+    <div class="tile-title">Far Cry 5 (2018)</div>
+  </a>
+<!-- Call Of Duty Black Ops 3 -->
+  <a class="tile" href="CODBlackOps3.html">
+    <img src="https://byrutgame.org/uploads/posts/2020-01/1579080747_call-of-duty-black-ops-iii.jpg" alt="COD Black Ops 3">
+    <div class="tile-title">Call Of Duty: Black Ops III (2015)</div>
+  </a>
+<!-- Forza Horizon 3 -->
+  <a class="tile" href="ForzaHorizon3.html">
+    <img src="https://byrutgame.org/uploads/posts/2020-01/1579193947_1579193859.jpg" alt="Forza Horizon 3">
+    <div class="tile-title">Forza Horizon 3 (2016)</div>
+  </a>
+<!-- Hitman Blood Money -->
+  <a class="tile" href="HitmanBloodMoney.html">
+    <img src="https://byrutgame.org/uploads/posts/2020-07/1594805895_hitman-blood-money.jpg" alt="Hitman Blood Money">
+    <div class="tile-title">Hitman: Blood Money (2006)</div>
+  </a>
+<!-- LEGO Batman 2 DC Super Heroes -->
+  <a class="tile" href="LEGOBatman2.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1576797183_lego-batman-2-dc-super-heroes.jpg" alt="LEGO Batman 2">
+    <div class="tile-title">LEGO Batman 2: DC Super Heroes (2012)</div>
+  </a>
+<!-- Mafia III -->
+  <a class="tile" href="Mafia3.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1577148753_mafia-iii.jpg" alt="Mafia III">
+    <div class="tile-title">Mafia III (2016)</div>
+  </a>
+<!-- Metro Exodus -->
+  <a class="tile" href="MetroExodus.html">
+    <img src="https://byrutgame.org/uploads/posts/2021-12/1639883698_metro-ishod.jpg" alt="Metro Exodus">
+    <div class="tile-title">Metro Exodus (2019)</div>
+  </a>
+<!-- Battlefield 5 -->
+  <a class="tile" href="Battlefield5.html">
+    <img src="https://byrutgame.org/uploads/posts/2024-02/battlefield-5-6388.jpg" alt="Battlefield 5">
+    <div class="tile-title">Battlefield V (2018)</div>
+  </a>
+<!-- Need For Speed PayBack -->
+  <a class="tile" href="NFSPayBack.html">
+    <img src="https://byrutgame.org/uploads/posts/2022-10/need-for-speed-payback.jpg" alt="Need For Speed PayBack">
+    <div class="tile-title">Need For Speed Payback (2017)</div>
+  </a>
+<!-- Sonic Lost World -->
+  <a class="tile" href="SonicLostWorld.html">
+    <img src="https://byrutgame.org/uploads/posts/2020-07/1594755429_sonic-lost-world.jpg" alt="Sonic Lost World">
+    <div class="tile-title">Sonic Lost World (2013)</div>
+  </a>
+<!-- Ведьмак 2: Убийцы королей -->
+  <a class="tile" href="Witcher2.html">
+    <img src="https://byrutgame.org/uploads/posts/2020-02/1580808802_the-witcher-2-assassins-of-kings-enhanced-edition.jpg" alt="Ведьмак 2">
+    <div class="tile-title">Ведьмак 2: Убийцы королей (2011)</div>
+  </a>
+<!-- Transformers: Rise of the Dark Spark -->
+  <a class="tile" href="TransformersDarkSpark.html">
+    <img src="https://byrutgame.org/uploads/posts/2023-08/transformers-rise-of-the-dark-spark.png" alt="Transformers: Rise of the Dark Spark">
+    <div class="tile-title">Transformers: Rise of the Dark Spark (2014)</div>
+  </a>
+<!-- Call Of Duty Black Ops 6 -->
+  <a class="tile" href="CODBlackOps6.html">
+    <img src="https://byrutgame.org/uploads/posts/2024-06/black-ops-6.jpg" alt="COD Black Ops 6">
+    <div class="tile-title">Call Of Duty: Black Ops 6 (2024)</div>
+  <!-- Ice Age 4: Continental Drift – Arctic Games -->
+  <a class="tile" href="IceAge4.html">
+    <img src="https://a.allegroimg.com/s512/1197da/ece3b4f64af89ef2f34e1e440ff2/Ice-Age-4-Continental-Drift-Arctic-Games-Steam-Kod-Klucz" alt="Ice Age 4">
+    <div class="tile-title">Ice Age 4: Arctic Games (2012)</div>
+  </a>
+<!-- Need For Speed Carbon -->
+  <a class="tile" href="NFScarbon.html">
+    <img src="https://byrutgame.org/uploads/posts/2020-01/1579108850_1579108858.jpg" alt="Need For Speed Carbon">
+    <div class="tile-title">Need For Speed: Carbon (2006)</div>
+  </a>
+<!-- Iron Man -->
+  <a class="tile" href="IronMan.html">
+    <img src="https://byrutgame.org/uploads/posts/2022-08/iron-man-poster.jpg" alt="Iron Man">
+    <div class="tile-title">Iron Man (2008)</div>
+  </a>
+<!-- Prince of Persia: The Sands of Time -->
+  <a class="tile" href="PoP_SandsOfTime.html">
+    <img src="https://byrutgame.org/uploads/posts/2022-08/prince-of-persia-the-sands-of-time-poster.jpg" alt="Prince of Persia Sands of Time">
+    <div class="tile-title">Prince of Persia: The Sands of Time (2003)</div>
+  </a>
+<!-- Шрэк 2 -->
+  <a class="tile" href="Shrek2.html">
+    <img src="https://cdn1.ozone.ru/multimedia/1000221575.jpg" alt="Shrek 2">
+    <div class="tile-title">Шрэк 2 (2004)</div>
+  </a>
+<!-- Иван Царевич и Серый Волк -->
+  <a class="tile" href="IvanTsarevich.html">
+    <img src="https://byrutgame.org/uploads/posts/2020-01/1579039220_1579039228.jpg" alt="Иван Царевич и Серый Волк">
+    <div class="tile-title">Иван Царевич и Серый Волк (2011)</div>
+  </a>
+<!-- Motorama Preved Edition -->
+  <a class="tile" href="MotoramaPreved.html">
+    <img src="https://gamestracker.org/_ld/98/9869.jpg" alt="Motorama Preved Edition">
+    <div class="tile-title">Motorama Preved Edition (2006)</div>
+  </a>
+<!-- Sonic Adventure DX -->
+  <a class="tile" href="SonicAdventureDX.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1577410606_sonic-adventure-dx.jpg" alt="Sonic Adventure DX">
+    <div class="tile-title">Sonic Adventure DX (1998)</div>
+  </a>
+<!-- Grid Autosport -->
+  <a class="tile" href="GridAutosport.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1576706721_grid-autosport.jpg" alt="Grid Autosport">
+    <div class="tile-title">Grid Autosport (2014)</div>
+  </a>
+<!-- Marvel Ultimate Alliance -->
+  <a class="tile" href="MarvelUltimateAlliance.html">
+    <img src="https://byrutgame.org/uploads/posts/2024-08/b3081562ce_marvel-ultimate-alliance-79182789124.png" alt="Marvel Ultimate Alliance">
+    <div class="tile-title">Marvel: Ultimate Alliance (2006)</div>
+  </a>
+<!-- Forza Horizon 4 -->
+  <a class="tile" href="FZ4.html">
+    <img src="https://byrutgame.org/uploads/posts/2019-12/1577621913_1577621928.jpg" alt="Forza Horizon 4">
+    <div class="tile-title">Forza Horizon 4 (2021)</div>
+  </a>
+<!-- Call Of Duty Black Ops 2 -->
+<a class="tile" href="CODBO2.html">
+  <img src="https://byrutgame.org/uploads/posts/2019-12/1577113431_call-of-duty-black-ops-ii.jpg" alt="Call Of Duty Black Ops 2">
+  <div class="tile-title">Call Of Duty Black Ops 2 (2012)</div>
+</a>
+<!-- Borderlands 3 -->
+<a class="tile" href="BL3.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-02/borderlands-3-8779.jpg" alt="Borderlands 3">
+  <div class="tile-title">Borderlands 3 (2019)</div>
+</a>
+<!-- Call Of Duty -->
+<a class="tile" href="COD.html">
+  <img src="https://byrutgame.org/uploads/posts/2019-12/1576794941_call-of-duty.jpg" alt="Call Of Duty">
+  <div class="tile-title">Call Of Duty (2003)</div>
+</a>
+<!-- Doom 2016 -->
+<a class="tile" href="DOOM2016.html">
+  <img src="https://byrutgame.org/uploads/posts/2020-04/1585926754_doom-poster.jpg" alt="Doom 2016">
+  <div class="tile-title">Doom (2016)</div>
+</a>
+<!-- LEGO Batman Beyond Gotham -->
+<a class="tile" href="LEGO_Batman_Beyond_Gotham.html">
+  <img src="https://byrutgame.org/uploads/posts/2024-02/lego-batman-3-beyond-gotham-2167.jpg" alt="LEGO Batman Beyond Gotham">
+  <div class="tile-title">LEGO Batman Beyond Gotham (204)</div>
+</a>
+<!-- F1 2016 -->
+<a class="tile" href="F1_2016.html">
+  <img src="https://byrutgame.org/uploads/posts/2019-12/1577196983_f1-2016.jpg" alt="F1 2016">
+  <div class="tile-title">F1 2016 (2016)</div>
+</a>
+<!-- Need For Speed Rivals -->
+<a class="tile" href="NFS_Rivals.html">
+  <img src="https://byrutgame.org/uploads/posts/2022-10/need-for-speed-rivals.jpg" alt="Need For Speed Rivals">
+  <div class="tile-title">Need For Speed Rivals (2013)</div>
+</a>
+
+
+
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const games = document.querySelectorAll(".tile");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      games.forEach(game => {
+        const title = game.querySelector(".tile-title").textContent.toLowerCase();
+        if (title.includes(query)) {
+          game.classList.remove("hidden");
+        } else {
+          game.classList.add("hidden");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
