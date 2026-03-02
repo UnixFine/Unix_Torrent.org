@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Unix.Console Xbox 360 — Игры</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+    body {
+      background: #1f1d1d;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #919191;
+    }
+    h1 {
+      text-align: center;
+      color: #00ff15;
+      text-shadow: 0 0 6px rgb(110, 255, 118);
+    }
+    .search-box {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .search-box input {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      background: #222;
+      color: #0f0;
+      box-shadow: 0 0 6px #07ff45;
+    }
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .tile {
+      background: #dfdfdf;
+      border: 1px solid #000000da;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+    .tile img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+    .tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #07ff45;
+    }
+    .tile-title {
+      padding: 10px;
+      background: #dfdfdf;
+      font-size: 15px;
+    }
+    .hidden {
+      display: none !important;
+}
+
+/* SCAN EFFECT */
+.tile:hover img {
+  filter: grayscale(0%) contrast(140%);
+}
+
+.hidden {
+  display: none !important;
+}
+
+  </style>
+</head>
+<body>
+</html>
+
+<h1>Unix.Console Xbox 360 — Качай до Бесконечности</h1>
+
+ <!-- Поиск -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Поиск игр...">
+  </div>
+  <div class="tiles" id="gamesList">
+
+    <!-- Sonic The Hedgehog 06 -->
+    <a class="tile" href="Sonic_06.html">
+      <img src="https://files.phantom-times.ru/link/2cqMIyHUAvA16M89_J1N_V7LD2R3x4l_m2dOzMFUoTg" alt="Sonic The Hedgehog 06">
+      <div class="tile-title"> Sonic The Hedgehog 06 (2006)</div>
+    </a>
